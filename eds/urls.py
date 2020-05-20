@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from django.views.generic import TemplateView
+from eds_app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', TemplateView.as_view(template_name='index.html')),
+    path('user_login/',views.user_login,name='user_login'),
+    path('Success/',views.main_page,name='main_page'),
+    path('Invest/Dashboard/',views.invest,name='invest_dashboard'),
+    path('Startup/Dashboard/',views.startup,name='startup__dashboard'),
+    path('logout/',views.logout,name='logout'),
 ]
