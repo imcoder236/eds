@@ -36,7 +36,6 @@
 
   <!-- Page Wrapper -->
   <div id="wrapper">
-    {% if request.session.id and user_type  %}
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
         <div class="sidebar-brand-icon rotate-n-15">
@@ -46,35 +45,14 @@
       </a>
       <hr class="sidebar-divider my-0">
 
-      {% if user_type is 1 %}
         <li class="nav-item active">
-          <a class="nav-link" href="../../Startup/Dashboard/">
+          <a class="nav-link" href="../../Admin/Dashboard/">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
         </li>
-      {% elif user_type is 2 %}
-        <li class="nav-item active">
-          <a class="nav-link" href="../../Invest/Dashboard/">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
-        </li>
-      {% elif user_type is 3 %}
-        <li class="nav-item active">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="../../Startup/Dashboard/" role="button">StartUp</a>
-            <a class="collapse-item" href="../../Invest/Dashboard/" role="button">Invest</a>
-          </div>
-        </div>
-      </li>
-      {% endif %}
+
       <hr class="sidebar-divider">
     </ul>
-    {% endif %}
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
@@ -84,17 +62,9 @@
         <!-- Topbar -->
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-
-          <!-- Topbar Navbar -->
-          {% if request.session.id and user_type  %}
-
           <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
             <i class="fa fa-bars"></i>
           </button>
-          <a class="nav-link" href="#" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
-          <a class="nav-link" href="#" role="button" aria-haspopup="true" aria-expanded="false">Our Services</a>
-          <a class="nav-link" href="#" role="button" aria-haspopup="true" aria-expanded="false">About Us</a>
-          <a class="nav-link" href="#" role="button" aria-haspopup="true" aria-expanded="false">Get in Touch?</a>
           <ul class="navbar-nav ml-auto">
 
             <!-- Nav Item - Search Dropdown (Visible Only XS) -->
@@ -166,8 +136,6 @@
               </div>
             </li>
 
-
-
             <div class="topbar-divider d-none d-sm-block"></div>
 
             <!-- Nav Item - User Information -->
@@ -186,10 +154,6 @@
                   <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                   Settings
                 </a>
-                <!-- <a class="dropdown-item" href="#">
-                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Activity Log
-                </a> -->
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -199,27 +163,6 @@
             </li>
 
           </ul>
-
-          {% else %}
-            <a class="nav-link" href="#" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
-            <a class="nav-link" href="#" role="button" aria-haspopup="true" aria-expanded="false">Our Services</a>
-            <a class="nav-link" href="#" role="button" aria-haspopup="true" aria-expanded="false">About Us</a>
-            <a class="nav-link" href="#" role="button" aria-haspopup="true" aria-expanded="false">Get in Touch?</a>
-
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item dropdown no-arrow">
-                <a class="nav-link dropdown-toggle" href="#" role="button"  data-toggle="modal" data-target="#SignInModal" aria-haspopup="true" aria-expanded="false">
-                  <span class="mr-2 d-none d-lg-inline text-gray-600 small">SignIn</span>
-                </a>
-              </li>
-              <li class="topbar-divider d-none d-sm-block"></li>
-              <li class="nav-item dropdown no-arrow">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="modal" data-target="#SignUpModal" aria-haspopup="true" aria-expanded="false">
-                  <span class="mr-2 d-none d-lg-inline text-gray-600 small">SignUp</span>
-                </a>
-              </li>
-            </ul>
-          {% endif %}
 
         </nav>
         <!-- End of Topbar -->
@@ -240,7 +183,7 @@
       <footer class="sticky-footer bg-white" >
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; EDS 2019</span>
+            <span>Copyright &copy; EDS 2020</span>
           </div>
         </div>
       </footer>
@@ -423,7 +366,7 @@
         var username=$("#inEmailIdUsername").val();
         var pass=$("#inPassword").val();
         if(username==""){
-          $("#inEmailIdUsername").css("border-color","red");
+           $("#inEmailIdUsername").css("border-color","red");
         }else if(pass=="" && username!=""){
           $("#inEmailIdUsername").css("border-color","#d2d6de");
           $("#inPassword").css("border-color","red");

@@ -18,9 +18,13 @@ from django.urls import path
 from django.views.generic import TemplateView
 from eds_app import views
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    #path('admin/', admin.site.urls),
+    path('admin/', TemplateView.as_view(template_name='admin/index.html')),
     path('', TemplateView.as_view(template_name='index.html')),
     path('user_login/',views.user_login,name='user_login'),
+    path('admin_login/',views.admin_login,name='admin_login'),
+    path('Admin/Dashboard/',views.dashboard,name='dashboard'),
+    path('forgot_pass/',views.forgot_pass,name='forgot_pass'),
     path('Success/',views.main_page,name='main_page'),
     path('Invest/Dashboard/',views.invest,name='invest_dashboard'),
     path('Startup/Dashboard/',views.startup,name='startup__dashboard'),
